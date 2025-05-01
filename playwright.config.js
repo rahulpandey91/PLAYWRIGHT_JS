@@ -17,6 +17,7 @@ const config = {
   /* Maximum time one test can run for. */
   timeout: 60 * 3000,
   globalSetup:"tests/utils/GlobalSetup.js",
+  globalTeardown: "tests/utils/TearDown.js",
   expect: {
     /**
      * Maximum time expect() should wait for the condition to be met.
@@ -31,9 +32,14 @@ const config = {
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : 4,
+  workers: process.env.CI ? 1 : 10,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['html', {
+      open: process.env.CI ? "never":"always",// if on CI then "never" otherwise "always" show
+    },],["line"], 
+    ["allure-playwright"],
+    ['junit',{outputFile: 'xml-results.xml'}]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
@@ -56,6 +62,17 @@ const config = {
         ...devices['Desktop Chrome'],
       },
     },
+    // {
+    //   name: 'Google Chrome',
+    //   use: {
+    //    channel: 'chromium',
+    //     headless: false,
+    //     launchOptions: {
+    //       executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+    //       args: ['--auth-server-whitelist="_"'],
+    //     },
+    //   },
+    // },
 
     // {
     //   name: 'firefox',

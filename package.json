@@ -1,9 +1,17 @@
 {
   "devDependencies": {
-    "@playwright/test": "^1.29.2"
+    "@playwright/test": "^1.52.0",
+    "allure-playwright": "^3.2.1"
   },
-  "scripts": {},
+  "scripts": {
+    "qa": "npm install && del allure-results /F /Q && set testEnv=qa&& npx playwright test --headed && allure generate ./allure-results --clean",
+    "uat": "npm install && del allure-results /F /Q && set testEnv=uat&& npx playwright test --headed && allure generate ./allure-results --clean",
+    "generate":"allure generate ./allure-results --clean",
+    "allure": "allure open ./allure-report"
+  },
   "dependencies": {
-    "dotenv": "^16.0.3"
+    "allure-commandline": "^2.34.0",
+    "dotenv": "^16.0.3",
+    "xml2js": "^0.6.2"
   }
 }
