@@ -45,3 +45,5 @@ Please make sure to update tests as appropriate.
 ## Official Website
 
 [Playwright](https://playwright.dev/)
+
+git remote set-url origin https://<access_token>@github.com/rahulpandey91/PLAYWRIGHT_JS
