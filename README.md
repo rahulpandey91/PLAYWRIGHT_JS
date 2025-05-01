@@ -1,6 +1,6 @@
 # Prerequisites to start with Playwright
 
-[Install Nodejs latest version](https://nodejs.org/en/download)
+[Install Nodejs latest version](https://nodejs.org/en/download) < br / >
 [Install Visual Code Studio IDE](https://nodejs.org/en/download)
 
 ## Installation
@@ -44,8 +44,4 @@ Please make sure to update tests as appropriate.
 
 ## Official Website
 
-<<<<<<< HEAD
 [Playwright](https://playwright.dev/)
-=======
-[Playwright](https://playwright.dev/)
->>>>>>> 9aef11f559989c3c9bc1c2a87a6dcdaf169efc6f
